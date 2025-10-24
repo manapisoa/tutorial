@@ -54,9 +54,9 @@ class User(BaseModel):
 async def submit(nm:str = Form(...),pwd:str = Form(...) ):
     return User(username=nm , password=pwd)
 
-#upload File
-# @app.post("/upload/")
-# async def upload_file(file:UploadFile = File(...)):
+# #upload File
+# # @app.post("/upload/")
+# # # async def upload_file(file:UploadFile = File(...)):
 
 
 @app.post("/cookies/")
@@ -71,9 +71,9 @@ def createCookies():
 async def read_cookies(username:str = Cookie(None)):
     return {"username":username}
 
-@app.get("/header/")
-async def read_header(accept_language:Optional[str] = Header(None)):
-    return {"accept_langage":accept_language}
+# @app.get("/header/")
+# async def read_header(accept_language:Optional[str] = Header(None)):
+#     return {"accept_langage":accept_language}
     
 if __name__=="__main__":
     uvicorn.run("main:app",host="127.0.0.1",port=8000,reload=True)
